@@ -6,6 +6,10 @@ const {
 } = require('../middlewares/auth')
 
 const {
+  checkAddress
+} = require('../middlewares/address.middlewares')
+
+const {
   addProductsCart,
   buyProductsCars,
   allProductsCar
@@ -15,6 +19,6 @@ const {
 
 cartRouter.get('/', checkAuth, allProductsCar)
 cartRouter.post('/add', checkAuth, addProductsCart)
-cartRouter.post('/buy', checkAuth, buyProductsCars)
+cartRouter.post('/buy', checkAuth, checkAddress, buyProductsCars)
 
 module.exports = { cartRouter }
