@@ -2,24 +2,32 @@ const mongoose  = require("mongoose");
 const { Schema } = require('mongoose');
 
 const paymentsSchema = new Schema({
-    numero: {
-        type: 'string',
+    number: {
+        type: Number,
         required: true
     },
-    nombre: {
-        type: 'string',
+    name: {
+        type: String,
         required: true
     },
     nip: {
-        type: int,
+        type: Number,
         required: true
     },
+    vality: {
+        type: Date,
+        required: true,
+    },
+    expiration: {
+        type: Date,
+        required: true,
+    },
     idUser: {
-        type: 'string',
+        type: String,
         required: true
     },
     status: {
-        type: 'string',
+        type: String,
         default: 'active'
     }
 
